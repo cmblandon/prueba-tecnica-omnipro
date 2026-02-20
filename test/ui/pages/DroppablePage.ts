@@ -2,15 +2,12 @@ import { PageElement, By } from '@serenity-js/web';
 
 export class DroppablePage {
 
-  // Scope to the Simple tab container to avoid duplicate IDs across tabs
-  static simpleContainer = PageElement
-    .located(By.id('simpleDropContainer'))
-    .describedAs('Simple tab container');
-
+  // Simple By.id - only one #draggable exists on the active tab
   static draggable = PageElement
-    .located(By.css('#simpleDropContainer #draggable'))
+    .located(By.id('draggable'))
     .describedAs('draggable element');
 
+  // #droppable exists in multiple tabs — scope to the Simple tab container
   static dropZone = PageElement
     .located(By.css('#simpleDropContainer #droppable'))
     .describedAs('drop zone');
