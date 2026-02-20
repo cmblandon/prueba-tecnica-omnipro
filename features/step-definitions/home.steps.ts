@@ -1,10 +1,8 @@
 import { Given, Then, DataTable } from '@cucumber/cucumber';
 import { actorInTheSpotlight } from '@serenity-js/core';
-
-import { OpenHomePage } from '../../test/ui/tasks/OpenHomePage';
-import { VerifyHomePageLoaded } from '../../test/ui/tasks/VerifyHomePageLoaded';
-import { VerifyMenuSections } from '../../test/ui/tasks/VerifyMenuSections';
-import { NavigateToHomePage } from '../../test/ui/tasks/NavigateToHomePage';
+import { VerifyHomePageLoaded } from '../../test/ui/tasks/home-tasks/VerifyHomePageLoaded';
+import { VerifyMenuSections } from '../../test/ui/tasks/home-tasks/VerifyMenuSections';
+import { NavigateToHomePage } from '../../test/ui/tasks/home-tasks/NavigateToHomePage';
 
 Given(
   'the user opens the browser and navigates to {string}',
