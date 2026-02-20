@@ -4,6 +4,12 @@ import { VerifyHomePageLoaded } from '../../test/ui/tasks/home-tasks/VerifyHomeP
 import { VerifyMenuSections } from '../../test/ui/tasks/home-tasks/VerifyMenuSections';
 import { NavigateToHomePage } from '../../test/ui/tasks/home-tasks/NavigateToHomePage';
 
+/**
+ * Shared Given step used as the entry point across all feature files.
+ * The URL parameter is intentionally accepted to keep scenarios readable and
+ * self-documenting, but the base URL is centrally managed via serenity.config.ts.
+ */
+
 Given(
   'the user opens the browser and navigates to {string}',
   async (url: string) => {
