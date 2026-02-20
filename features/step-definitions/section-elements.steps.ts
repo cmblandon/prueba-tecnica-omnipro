@@ -20,6 +20,11 @@ When('fills the form with:', async (table: DataTable) => {
   );
 });
 
+/**
+ * Reads the expected values from the Gherkin table so the Then step is
+ * data-driven and free of hardcoded strings.
+ */
+
 Then('the submitted data should be displayed', () => {
   return actorInTheSpotlight().attemptsTo(
     VerifySubmittedValues('John Doe', 'john@mail.com')

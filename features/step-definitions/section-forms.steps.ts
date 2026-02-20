@@ -19,6 +19,11 @@ When('fills the Practice Form with:', async (table: DataTable) => {
   );
 });
 
+/**
+ * Verifies the confirmation modal displays the correct full name
+ * derived from the firstName + lastName submitted in the form.
+ */
+
 Then('a confirmation modal should appear', async () => {
   await actorInTheSpotlight().attemptsTo(
     VerifyPracticeFormSubmission(),

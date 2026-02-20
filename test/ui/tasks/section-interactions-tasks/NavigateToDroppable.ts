@@ -1,8 +1,9 @@
 import { Task } from '@serenity-js/core';
-import { Click, Page } from '@serenity-js/web';
+import { Click, Page, Scroll } from '@serenity-js/web';
 import { Ensure, includes } from '@serenity-js/assertions';
 import { HomePage } from '../../pages/HomePage';
 import { ElementsPage } from '../../pages/ElementsPage';
+import { DroppablePage } from '../../pages/DroppablePage';
 
 export const NavigateToDroppable = () =>
   Task.where(
@@ -11,4 +12,5 @@ export const NavigateToDroppable = () =>
     Ensure.eventually(Page.current().url().href, includes('interaction')),
     Click.on(ElementsPage.sideMenuItem('Droppable')),
     Ensure.eventually(Page.current().url().href, includes('droppable')),
+    Scroll.to(DroppablePage.draggable),
   );
