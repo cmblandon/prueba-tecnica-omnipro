@@ -1,6 +1,5 @@
 # DemoQA Test Automation Suite
 
-[![Build Status](https://github.com/your-org/demoqa-serenity/actions/workflows/main.yml/badge.svg)](https://github.com/your-org/demoqa-serenity/actions/workflows/main.yml)
 [![Serenity/JS](https://img.shields.io/npm/v/%40serenity-js%2Fcore?style=flat&label=Serenity%2FJS&color=%23FBD30B)](https://serenity-js.org/releases/)
 
 End-to-end test automation for [DemoQA](https://demoqa.com/) built with **Serenity/JS**, **Cucumber**, and **Playwright**, following the **Screenplay Pattern** and BDD best practices.
@@ -83,21 +82,14 @@ npm start   # opens http://localhost:8080
     │   └── User.ts                    # Shared data model
     ├── ui/
     │   ├── tasks/                     # WHEN — interaction tasks (no assertions)
-    │   │   ├── home-tasks/
-    │   │   ├── section-alerts-tasks/
-    │   │   ├── section-bookstore-tasks/
-    │   │   ├── section-forms-tasks/
-    │   │   ├── section-interactions-tasks/
-    │   │   ├── section-items-tasks/
-    │   │   └── section-widgets-tasks/
-    │   └── questions/                 # THEN — questions and assertion tasks
-    │       ├── AccordionPanelIsExpanded.ts
-    │       ├── AlertWasAccepted.ts
-    │       ├── DropZoneText.ts
-    │       ├── NewTabHeadingIsVisible.ts
-    │       ├── SearchResultsContain.ts
-    │       ├── VerifyPracticeFormSubmission.ts
-    │       └── VerifySubmittedValues.ts
+    │      ├── home-tasks/
+    │      ├── section-alerts-tasks/
+    │      ├── section-bookstore-tasks/
+    │      ├── section-forms-tasks/
+    │      ├── section-interactions-tasks/
+    │      ├── section-items-tasks/
+    │      └── section-widgets-tasks/
+    │
 │
 └── target/site/serenity/              # Generated Serenity BDD reports
 ```
@@ -132,11 +124,8 @@ Tasks      Questions
 | Layer                | Responsibility                      | Never Does                       |
 | -------------------- | ----------------------------------- | -------------------------------- |
 | **Tasks**            | Perform UI interactions             | Assert or verify                 |
-| **Questions**        | Read state and return values        | Change UI state                  |
 | **Step Definitions** | Connect Gherkin to Tasks/Questions  | Contain UI logic                 |
 | **Feature Files**    | Describe behaviour in plain English | Reference implementation details |
-
-> **Why this matters:** Tasks that also assert (e.g. `DragAndVerifyDrop`, `ExpandAndVerifyAccordion`) break single responsibility, make tasks non-reusable, and hide assertions from Serenity BDD reports. Each task does one thing; each question answers one thing.
 
 ---
 
@@ -249,16 +238,6 @@ java -version
 ```shell
 npx http-server -p 3000 target/site/serenity -s -o
 ```
-
----
-
-## Contributing
-
-1. Write new scenarios in Gherkin first
-2. Add Tasks for `When` steps (interactions only — no assertions inside tasks)
-3. Add Questions for `Then` steps (reads state, returns values)
-4. Use `Ensure.that(Question(), matcher())` in `Then` steps
-5. Run `npm run lint` before committing
 
 ---
 
