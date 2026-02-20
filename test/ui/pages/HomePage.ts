@@ -9,4 +9,10 @@ export class HomePage {
   static sectionTitles = PageElements
     .located(By.css('.category-cards h5'))
     .describedAs('main menu sections');
+
+    static card(name: string) {
+    return PageElement
+      .located(By.xpath(`//h5[normalize-space()='${name}']`))
+      .describedAs(`${name} card`);
+  }
 }
