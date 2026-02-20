@@ -1,5 +1,5 @@
-import { AfterAll, BeforeAll, setDefaultTimeout } from '@cucumber/cucumber';
-import { configure, Duration } from '@serenity-js/core';
+import { AfterAll, BeforeAll, Before, setDefaultTimeout } from '@cucumber/cucumber';
+import { configure, Duration, actorCalled } from '@serenity-js/core';
 import path from 'path';
 import * as playwright from 'playwright';
 
@@ -23,6 +23,10 @@ let browser: playwright.Browser;
 // Configure default Cucumber step timeout
 setDefaultTimeout(timeouts.cucumber.step.inMilliseconds());
 
+Before(function({ pickle }) {
+    actorCalled(pickle.name);
+});
+
 BeforeAll(async () => {
     // Launch the browser once before all the tests
     // Serenity/JS will take care of managing Playwright browser context and browser tabs.
@@ -37,7 +41,8 @@ BeforeAll(async () => {
         actors: new Actors(
             browser,
             {
-                baseURL: 'https://the-internet.herokuapp.com/',
+                //baseURL: 'https://the-internet.herokuapp.com/',
+                baseURL: 'https://demoqa.com/',
             },
             {
                 defaultNavigationTimeout: timeouts.playwright.defaultNavigationTimeout.inMilliseconds(),
