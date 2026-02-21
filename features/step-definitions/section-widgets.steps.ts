@@ -14,8 +14,3 @@ When('the user expands the accordion panel {string}', async (panelTitle: string)
     ExpandAndVerifyAccordion(panelTitle),
   );
 });
-
-Then('all accordion panels should display their content', async () => {
-  // Verification is done inside each ExpandAndVerifyAccordion call
-  // Each panel was already verified to be visible and contain text
-});
