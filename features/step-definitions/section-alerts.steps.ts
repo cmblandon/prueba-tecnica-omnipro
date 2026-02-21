@@ -17,11 +17,6 @@ When('the user triggers and accepts the simple alert', async () => {
   );
 });
 
-Then('the alert should be accepted', async () => {
-  // Alert acceptance is verified inside TriggerAndAcceptAlert task
-  // via ModalDialog.lastDialogState()
-});
-
 When('the user navigates to the Browser Windows section', async () => {
   await actorInTheSpotlight().attemptsTo(
     NavigateToBrowserWindows(),
@@ -32,9 +27,4 @@ When('the user clicks the New Tab button', async () => {
   await actorInTheSpotlight().attemptsTo(
     OpenNewTabAndVerify(),
   );
-});
-
-Then('a new tab should open with the sample page heading', async () => {
-  // Verification is done inside OpenNewTabAndVerify task
-  // (switches to new tab and checks heading text)
 });

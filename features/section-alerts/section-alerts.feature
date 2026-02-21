@@ -9,10 +9,8 @@ Feature: Section Alerts, Frame & Windows
   Scenario: Accept a simple alert
     When the user navigates to the Alerts section
     And the user triggers and accepts the simple alert
-    Then the alert should be accepted
 
   Scenario: Open a new tab from Browser Windows
     When the user navigates to the Alerts section
     And the user navigates to the Browser Windows section
     And the user clicks the New Tab button
-    Then a new tab should open with the sample page heading
