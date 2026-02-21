@@ -10,7 +10,9 @@
     "test:report": "serenity-bdd run --features ./features",
     "start": "mkdirp target/site/serenity && npx http-server -p 8080 target/site/serenity -s -o",
     "lint": "eslint --ext ts --config .eslintrc.js .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "test:interactions": "failsafe clean test:execute:interactions test:report",
+    "test:execute:interactions": "cucumber-js features/section-interactions.feature"
   },
   "repository": {
     "type": "git",
@@ -24,7 +26,7 @@
     "playwright",
     "playwright-test"
   ],
-  "author": "Jan Molak <jan.molak@smartcodeltd.co.uk>",
+  "author": "Cristian Blandon <cristianblandon13@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/serenity-js/serenity-js-cucumber-playwright-template/issues"
